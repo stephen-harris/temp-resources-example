@@ -25,7 +25,13 @@ spec:
       - image: 198443438542.dkr.ecr.eu-west-1.amazonaws.com/whoami:latest
         imagePullPolicy: Always
         name: whoami
-        resources: {}
+        resources:
+          limits:
+            cpu: 100m
+            memory: 5Gi
+          requests:
+            cpu: 100m
+            memory: 5Gi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
