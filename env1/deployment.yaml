@@ -22,7 +22,7 @@ spec:
         test: sh
     spec:
       containers:
-      - image: 198443438542.dkr.ecr.eu-west-1.amazonaws.com/whoami:latest
+      - image: traefik/whoami:latest
         imagePullPolicy: Always
         name: whoami
         resources:
