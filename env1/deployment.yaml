@@ -4,6 +4,7 @@ metadata:
   labels:
     app: whoami
     test: sh
+    foo: bar
   name: whoami
 spec:
   replicas: 2
@@ -27,11 +28,11 @@ spec:
         name: whoami
         resources:
           limits:
-            cpu: 5
-            memory: 1Gi
+            cpu: 500m
+            memory: 250Mi
           requests:
-            cpu: 5
-            memory: 1Gi
+            cpu: 500m
+            memory: 250Mi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
