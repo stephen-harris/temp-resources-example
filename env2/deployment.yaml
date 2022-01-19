@@ -20,18 +20,19 @@ spec:
       labels:
         app: whoami
         test: sh
+        hello:world
     spec:
       containers:
-      - image: 198443438542.dkr.ecr.eu-west-1.amazonaws.com/whoami:latest
+      - image: traefik/whoami:latest
         imagePullPolicy: Always
         name: whoami
         resources:
           limits:
-            cpu: 5
-            memory: 1Gi
+            cpu: 500m
+            memory: 250Mi
           requests:
-            cpu: 5
-            memory: 1Gi
+            cpu: 500m
+            memory: 250Mi
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
