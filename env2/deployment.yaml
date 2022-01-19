@@ -20,7 +20,7 @@ spec:
       labels:
         app: whoami
         test: sh
-        hello:world
+        hello: world
     spec:
       containers:
       - image: traefik/whoami:latest
