@@ -4,7 +4,6 @@ metadata:
   labels:
     app: whoami
     test: sh
-    foo: bar
   name: whoami
 spec:
   replicas: 2
@@ -21,6 +20,7 @@ spec:
       labels:
         app: whoami
         test: sh
+        hello:world
     spec:
       containers:
       - image: traefik/whoami:latest
