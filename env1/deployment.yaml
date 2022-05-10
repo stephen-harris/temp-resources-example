@@ -32,6 +32,8 @@ spec:
           requests:
             cpu: 500m
             memory: 250Mi
+        env:
+          FOO: "123"
         envFrom:
         - configMapRef:
             name: data
