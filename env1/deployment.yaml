@@ -33,7 +33,8 @@ spec:
             cpu: 500m
             memory: 250Mi
         env:
-          FOO: "123"
+        - name: FOO
+          value: "123"
         envFrom:
         - configMapRef:
             name: data
