@@ -32,6 +32,12 @@ spec:
           requests:
             cpu: 500m
             memory: 250Mi
+        env:
+          - name: TOPIC
+            valueFrom:
+              configMapKeyRef:
+                name: data
+                key: topic
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
