@@ -34,7 +34,7 @@ spec:
             memory: 250Mi
         env:
         - name: FOO
-          value: "123"
+          value: "789"
         envFrom:
         - configMapRef:
             name: data
