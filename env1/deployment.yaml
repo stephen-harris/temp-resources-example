@@ -2,14 +2,14 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: whoami
+    app: hello-kubernetes
     test: sh
-  name: whoami
+  name: hello-kubernetes
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: whoami
+      app: hello-kubernetes
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       labels:
-        app: whoami
+        app: hello-kubernetes
         test: sh
     spec:
       containers:
-      - image: traefik/whoami:latest
+      - image: paulbouwer/hello-kubernetes:latest
         imagePullPolicy: Always
         name: whoami
         resources:
