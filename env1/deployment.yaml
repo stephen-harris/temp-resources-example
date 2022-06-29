@@ -6,7 +6,7 @@ metadata:
     test: sh
   name: hello-kubernetes
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: hello-kubernetes
@@ -34,7 +34,7 @@ spec:
             memory: 250Mi
         env:
         - name: FOO
-          value: "789"
+          value: "123"
         envFrom:
         - configMapRef:
             name: data
