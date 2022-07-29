@@ -1,0 +1,24 @@
+queue_rules:
+  - name: default
+    conditions:
+      - author=dependabot
+      - "check-success=ci/circleci: build-and-test"
+
+pull_request_rules:
+  - name: label scala-steward's PRs
+    conditions:
+      - author=dependabot
+    actions:
+      label:
+        add: [dependency-update]
+  - name: approve and merge scala-steward's PRs
+    conditions:
+      - author=dependabot
+      - "check-success=ci/circleci: loss-service-build-and-test"
+      - "check-success=ci/circleci: integration-test-loss-service"
+    actions:
+      review:
+        type: APPROVE
+      queue:
+        method: squash
+        name: default
