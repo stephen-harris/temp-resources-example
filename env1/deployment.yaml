@@ -4,6 +4,7 @@ metadata:
   labels:
     app: hello-kubernetes
     test: sh
+    kaluzaplatform.net/mi-scale-in: "true"
   name: hello-kubernetes
 spec:
   replicas: 3
