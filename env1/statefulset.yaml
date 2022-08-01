@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: hello-kubernetes-statefulset
+    test: sh
+    kaluzaplatform.net/mi-scale-in: "true"
+  name: hello-kubernetes-statefulset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-kubernetes-statefulset
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes-statefulset
+        test: sh
+    spec:
+      containers:
+      - image: paulbouwer/hello-kubernetes:1.10.1
+        imagePullPolicy: Always
+        name: whoami
+        resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 500m
+            memory: 250Mi
+        env:
+        - name: FOO
+          value: "678"
+        envFrom:
+        - configMapRef:
+            name: data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: 
+        runAsUser: 1000
+      terminationGracePeriodSeconds: 30
