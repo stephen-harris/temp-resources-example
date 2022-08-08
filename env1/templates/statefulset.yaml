@@ -8,7 +8,7 @@ metadata:
   name: hello-kubernetes-statefulset
 spec:
   serviceName: "hello-kubernetes-statefulset"
-  replicas: 3
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: hello-kubernetes-statefulset
