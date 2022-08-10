@@ -4,7 +4,7 @@ metadata:
   labels:
     app: hello-kubernetes-statefulset
     test: sh
-    kaluzaplatform.net/mi-scale-in: "true"
+    kaluzaplatform.net/mi-scale-in: "statefulset.replicaCount"
   name: hello-kubernetes-statefulset
 spec:
   serviceName: "hello-kubernetes-statefulset"

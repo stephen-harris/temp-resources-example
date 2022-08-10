@@ -4,7 +4,7 @@ metadata:
   labels:
     app: hello-kubernetes
     test: sh
-    kaluzaplatform.net/mi-scale-in: "true"
+    kaluzaplatform.net/mi-scale-in: "deployment.replicaCount"
   name: hello-kubernetes
 spec:
   replicas: {{ .Values.deplpoyment.replicaCount }}
