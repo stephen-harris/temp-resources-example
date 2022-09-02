@@ -1,5 +1,6 @@
 deployment:
-  replicaCount: 3
+  really-long-reference-to-go-over-sixty-three-chars:
+    replicaCount: 3
 
 statefulset:
   replicaCount: 2
