@@ -1,5 +1,4 @@
 
-env1:
-  really_long_reference_to_go_over_sixty_three_chars:
-    deployment:
-      replicaCount: 3
+
+deployment:
+  replicaCount: 3
