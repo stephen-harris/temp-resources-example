@@ -1,5 +1,5 @@
 deployment:
-  really-long-reference-to-go-over-sixty-three-chars:
+  really_long_reference_to_go_over_sixty_three_chars:
     replicaCount: 3
 
 statefulset:

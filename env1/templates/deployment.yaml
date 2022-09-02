@@ -7,9 +7,9 @@ metadata:
     kaluzaplatform.net/mi-scale-in: "true"
   name: hello-kubernetes
   annotations:
-    replicaPath: "deployment.really-long-reference-to-go-over-sixty-three-chars.replicaCount"
+    replicaPath: "deployment.really_long_reference_to_go_over_sixty_three_chars.replicaCount"
 spec:
-  replicas: {{ .Values.deployment.really-long-reference-to-go-over-sixty-three-chars.replicaCount }}
+  replicas: {{ .Values.deployment.really_long_reference_to_go_over_sixty_three_chars.replicaCount }}
   selector:
     matchLabels:
       app: hello-kubernetes
