@@ -2,4 +2,3 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: data
-  namespace: argocd-sync

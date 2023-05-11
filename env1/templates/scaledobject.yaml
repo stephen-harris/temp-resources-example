@@ -1,0 +1,15 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: cron-scaledobject
+  namespace: argocd-sync
+spec:
+  scaleTargetRef:
+    name: hello-kubernetes
+  triggers:
+  - type: cron
+    metadata:
+      timezone: Asia/Kolkata
+      start: 20 * * * *
+      end: 30 * * * *
+      desiredReplicas: "0"
