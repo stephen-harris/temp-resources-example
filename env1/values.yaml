@@ -2,3 +2,6 @@
 
 statefulset:
   replicaCount: 2
+
+deployment:
+  replicaCount: 3
