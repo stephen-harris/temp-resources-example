@@ -7,3 +7,4 @@ metadata:
 spec:
   scaleTargetRef:
     name: hello-kubernetes
+  triggers:
