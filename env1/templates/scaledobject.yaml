@@ -2,13 +2,9 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: cron-scaledobject
+  annotations:
+    autoscaling.keda.sh/paused-replicas: "0"
 spec:
   scaleTargetRef:
     name: hello-kubernetes
   triggers:
-  - type: cron
-    metadata:
-      timezone: Asia/Kolkata
-      start: 10 * * * *
-      end: 15 * * * *
-      desiredReplicas: "0"
