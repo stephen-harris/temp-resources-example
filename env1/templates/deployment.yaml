@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: hello-kubernetes
-    test: sh
     kaluzaplatform.net/mi-scale-in: "true"
+    tags.datadog.com/team: "jaws"
   name: hello-kubernetes
   annotations:
     replicaPath: "deployment.replicaCount"
@@ -44,6 +44,6 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: 
+      securityContext:
         runAsUser: 1000
       terminationGracePeriodSeconds: 30

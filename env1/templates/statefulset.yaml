@@ -3,8 +3,8 @@ kind: StatefulSet
 metadata:
   labels:
     app: hello-kubernetes-statefulset
-    test: sh
     kaluzaplatform.net/mi-scale-in: "true"
+    tags.datadog.com/team: "jaws"
   name: hello-kubernetes-statefulset
   annotations:
     replicaPath: "statefulset.replicaCount"
@@ -40,6 +40,6 @@ spec:
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
-      securityContext: 
+      securityContext:
         runAsUser: 1000
       terminationGracePeriodSeconds: 30
