@@ -49,6 +49,7 @@ spec:
       securityContext:
         runAsUser: 1000
       terminationGracePeriodSeconds: 30
+{{- end }}
 ---
 apiVersion: apps/v1
 kind: Deployment
