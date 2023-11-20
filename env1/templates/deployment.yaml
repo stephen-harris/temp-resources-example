@@ -1,4 +1,4 @@
-{{- range $index, $value := until 2 }}
+{{- range $index, $value := until 3 }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
