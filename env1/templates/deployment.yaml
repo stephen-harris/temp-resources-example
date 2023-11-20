@@ -11,7 +11,7 @@ metadata:
   annotations:
     replicaPath: "replicaCount"
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ $.Values.replicaCount }}
   selector:
     matchLabels:
       app: hello-kubernetes
