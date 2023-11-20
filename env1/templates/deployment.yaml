@@ -1,4 +1,3 @@
-{{- range $index, $value := until 3 }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,7 +5,7 @@ metadata:
     app: hello-kubernetes
     test: sh
     kaluzaplatform.net/mi-scale-in: "true"
-  name: hello-kubernetes-{{ $index }}
+  name: hello-kubernetes-1
   namespace: argocd-sync
   annotations:
     replicaPath: "replicaCount"
@@ -49,7 +48,57 @@ spec:
       securityContext:
         runAsUser: 1000
       terminationGracePeriodSeconds: 30
-{{- end }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-kubernetes
+    test: sh
+    kaluzaplatform.net/mi-scale-in: "true"
+  name: hello-kubernetes-2
+  namespace: argocd-sync
+  annotations:
+    replicaPath: "replicaCount"
+spec:
+  replicas: {{ $.Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: hello-kubernetes
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: hello-kubernetes
+        test: sh
+    spec:
+      containers:
+      - image: paulbouwer/hello-kubernetes:1.10.1
+        imagePullPolicy: Always
+        name: whoami
+        resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 500m
+            memory: 250Mi
+        env:
+        - name: FOO
+          value: "678"
+        envFrom:
+        - configMapRef:
+            name: data
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsUser: 1000
+      terminationGracePeriodSeconds: 30
 ---
 apiVersion: apps/v1
 kind: Deployment
