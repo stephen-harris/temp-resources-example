@@ -8,7 +8,7 @@ metadata:
   name: hello-kubernetes-1
   namespace: argocd-sync
   annotations:
-    replicaPath: "replicaCount"
+    kaluzaplatform.net/replica-path: "replicaCount"
 spec:
   replicas: {{ $.Values.replicaCount }}
   selector:
@@ -59,7 +59,7 @@ metadata:
   name: hello-kubernetes-2
   namespace: argocd-sync
   annotations:
-    replicaPath: "replicaCount"
+    kaluzaplatform.net/replica-path: "replicaCount"
 spec:
   replicas: {{ $.Values.replicaCount }}
   selector:
@@ -109,7 +109,7 @@ metadata:
     kaluzaplatform.net/mi-scale-in: "true"
   name: hello-kubernetes-3
   annotations:
-    replicaPath: "deployment.replicaCount"
+    kaluzaplatform.net/replica-path: "deployment.replicaCount"
 spec:
   replicas: {{ .Values.deployment.replicaCount }}
   selector:
